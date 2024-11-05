@@ -15,7 +15,7 @@ function Login() {
           
           <Form.Item label="Email" name='email'>
             <Input placeholder='Email'/>
-          </Form.Item>k
+          </Form.Item>
           
           <Form.Item label="Password" name='password'>
             <Input placeholder='Password' type='password'/>
