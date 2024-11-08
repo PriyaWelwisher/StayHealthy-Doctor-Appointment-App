@@ -22,22 +22,18 @@ label{
 .ant-form-item{
   margin: 10px 0 !important;
 }
-
 /* Common styling */
 .card-title{
   font-size: 1.5rem;
   font-weight: bold;
 }
-
 .normal-text{
   font-size: 1rem;
 }
-
 .card{
   box-shadow: 0 0 2pc gray ;
   border-radius: 0%;
 }
-
 .primary-button{
   background-color: sandybrown !important;
   border-color: white !important;
@@ -47,13 +43,11 @@ label{
   font-size: 16px;
   font-weight: bolder;
 }
-
 .anchor{
   color: burlywood !important;
   text-decoration: underline;
   font-size: 16px !important;
 }
-
 .anchor:hover{
   text-decoration: underline !important;
   color: blue !important;
@@ -66,11 +60,9 @@ label{
   justify-content: center;
   background-color: gainsboro;
 }
-
 .authentication-form{
   width: 400px;
 }
-
 .authentication .card-title{
   font-size: 1.5rem;
   font-weight: bold;
