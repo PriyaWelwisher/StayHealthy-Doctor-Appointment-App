@@ -3,11 +3,13 @@ import { Form, Input, Button } from "antd";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { showLoading, hideLoading } from "../redux/alertSlice.js";
 
 function Login() {
   const dispatch = useDispatch();
+  // const {loading} = useSelector(state => state.alerts);
+  // console.log(loading)
   const navigate = useNavigate();
   const onFinish = async (values) => {
     try {
@@ -24,7 +26,7 @@ function Login() {
         toast.error(response.data.message);
       }
     } catch (error) {
-      dispatch(hideLoading())
+      dispatch(hideLoading());
       // Detailed error handling
       toast.error("Something went wrong");
 

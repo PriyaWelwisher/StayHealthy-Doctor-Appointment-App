@@ -6,20 +6,22 @@ import { Toaster } from "react-hot-toast";
 import Home from "./pages/Home";
 import { useSelector } from "react-redux";
 import ProtectedRoute from "./components/ProtectedRoute";
-import PubliceRoute from "./components/PublicRoute";
+import PublicRoute from "./components/PublicRoute";
+
 function App() {
-  const { loading } = useSelector((state) => state.alerts);
+  const { loading } = useSelector((state) => state.alerts);  // Assuming alerts is part of your redux state
+
   return (
     <BrowserRouter>
       {loading && (
         <div className="spinner-parent">
-          <div class="spinner-border" role="status"></div>
+          <div className="spinner-border" role="status"></div>
         </div>
       )}
       <Toaster position="top-center" reverseOrder={false} />
       <Routes>
-        <Route path="/login" element={<publicRoute><Login /></publicRoute>} />
-        <Route path="/register" element={<publicRoute><Register /></publicRoute>} />
+        <Route path="/login" element={<PublicRoute><Login /></PublicRoute>} />
+        <Route path="/register" element={<PublicRoute><Register /></PublicRoute>} />
         <Route
           path="/"
           element={
@@ -32,5 +34,6 @@ function App() {
     </BrowserRouter>
   );
 }
+
 
 export default App;
