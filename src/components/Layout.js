@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import "../layout.css";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 function Layout({ children }) {
   const [collapsed, setCollapsed] = useState(false);
   const { user } = useSelector((state) => state.user);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const userMenu = [
     {
@@ -29,14 +30,31 @@ function Layout({ children }) {
       path: "/profile",
       icon: "ri-user-shared-2-fill",
     },
-    {
-      name: "Logout",
-      path: "/logout",
-      icon: "ri-logout-circle-r-line",
-    },
   ];
 
-  const menuToBeRendered = userMenu;
+  const adminMenu = [
+    {
+      name: "Home",
+      path: "/",
+      icon: "ri-home-smile-fill",
+    },
+    {
+      name: "Users",
+      path: "/users",
+      icon: "ri-user-line",
+    },
+    {
+      name: "Doctors",
+      path: "/doctors",
+      icon: "ri-user-star-line",
+    },
+    {
+      name: "Profile",
+      path: "/profile",
+      icon: "ri-user-shared-2-fill",
+    },
+  ];
+  const menuToBeRendered = user?.isAdmin ? adminMenu : userMenu;
 
   return (
     <div className="main">
@@ -51,9 +69,8 @@ function Layout({ children }) {
               const isActive = location.pathname === menu.path;
               return (
                 <div
-                  className={`d-flex menu-item ${
-                    isActive && "active-menu-item"
-                  }`}
+                  className={`d-flex menu-item ${isActive && "active-menu-item"
+                    }`}
                   key={menu.path} // Added a key to each menu item
                 >
                   <i className={menu.icon}></i>
@@ -61,6 +78,22 @@ function Layout({ children }) {
                 </div>
               );
             })}
+            {/* {
+      name: "Logout",
+      path: "/logout",
+      icon: "ri-logout-circle-r-line",
+    }, */}
+            <div
+              className={`d-flex menu-item 
+                  `} onClick={() => {
+                localStorage.clear()
+                navigate('/login')
+              }}
+            // Added a key to each menu item
+            >
+              <i className='ri-logout-circle-r-line'></i>
+              {!collapsed && <Link to='/login'>Logout</Link>}
+            </div>
           </div>
         </div>
         <div className="content">
