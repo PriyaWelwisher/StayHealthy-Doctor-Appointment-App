@@ -40,6 +40,7 @@
   box-shadow: 0 0 2px gray;
   height: 82vh;
   width: 100%;
+  padding: 15px;
 }
 .menu{
     margin-top: 100px;
@@ -74,8 +75,15 @@
     padding-left: 10px;
   }
 
-  @media screen and (max-width: 768px) {
+  .ant-scroll-number-only-unit current{
+    padding-right: -10px !important;
+    padding-bottom: -10px !important;
+  }
+
+  @media screen and (max-width: 768px),( forced-colors: active) {
     .menu{
         padding: 0 5px;
     }
   }
+
+

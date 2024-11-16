@@ -20,7 +20,7 @@ function Register() {
         toast.success(response.data.message);
         toast("Redirecting to login page");
         localStorage.setItem("token", response.data.data); // Storing token
-        navigate("/"); // Redirect to home page
+        navigate("/login"); // Redirect to home page
       } else {
         toast.error(response.data.message);
       }
