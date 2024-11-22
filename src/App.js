@@ -9,9 +9,11 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import PublicRoute from "./components/PublicRoute";
 import ApplyDoctor from "./pages/ApplyDoctor";
 import Notifications from "./pages/Notifications";
+import Doctors from "./pages/admin/Doctors";
+import Users from "./pages/admin/Users";
 
 function App() {
-  const { loading } = useSelector((state) => state.alerts);  // Assuming alerts is part of your redux state
+  const { loading } = useSelector((state) => state.alerts); // Assuming alerts is part of your redux state
 
   return (
     <BrowserRouter>
@@ -22,8 +24,22 @@ function App() {
       )}
       <Toaster position="top-center" reverseOrder={false} />
       <Routes>
-        <Route path="/login" element={<PublicRoute><Login /></PublicRoute>} />
-        <Route path="/register" element={<PublicRoute><Register /></PublicRoute>} />
+        <Route
+          path="/login"
+          element={
+            <PublicRoute>
+              <Login />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            <PublicRoute>
+              <Register />
+            </PublicRoute>
+          }
+        />
         <Route
           path="/"
           element={
@@ -36,7 +52,23 @@ function App() {
           path="/apply-doctor"
           element={
             <ProtectedRoute>
-              < ApplyDoctor />
+              <ApplyDoctor />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/users"
+          element={
+            <ProtectedRoute>
+              <Users />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/doctors"
+          element={
+            <ProtectedRoute>
+              <Doctors />
             </ProtectedRoute>
           }
         />
@@ -44,7 +76,7 @@ function App() {
           path="/notifications"
           element={
             <ProtectedRoute>
-              < Notifications />
+              <Notifications />
             </ProtectedRoute>
           }
         />
@@ -52,6 +84,5 @@ function App() {
     </BrowserRouter>
   );
 }
-
 
 export default App;
