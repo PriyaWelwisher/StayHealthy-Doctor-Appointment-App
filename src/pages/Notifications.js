@@ -15,11 +15,11 @@ function Notifications() {
   const markAllAsSeen = async () => {
     try {
       dispatch(showLoading());
-      const response = await axios.post("http://localhost:3000/api/user/mark-all-notifications-as-seen", { userId: user._id }, { 
+      const response = await axios.post("http://localhost:3000/api/user/mark-all-notifications-as-seen", { userId: user._id }, {
         headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`
-      }
-    });
+          Authorization: `Bearer ${localStorage.getItem("token")}`
+        }
+      });
       dispatch(hideLoading());
 
       if (response.data.success) {
@@ -50,11 +50,11 @@ function Notifications() {
   const deleteAll = async () => {
     try {
       dispatch(showLoading());
-      const response = await axios.post("http://localhost:3000/api/user/delete-all-notifications", { userId: user._id }, { 
+      const response = await axios.post("http://localhost:3000/api/user/delete-all-notifications", { userId: user._id }, {
         headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`
-      }
-    });
+          Authorization: `Bearer ${localStorage.getItem("token")}`
+        }
+      });
       dispatch(hideLoading());
 
       if (response.data.success) {
@@ -99,7 +99,7 @@ function Notifications() {
         </Tabs.TabPane>
         <Tabs.TabPane tab="seen" key={1}>
           <div className="d-flex justify-content-end">
-            <h1 className="anchor"onClick={()=>deleteAll()}>Delete all</h1>
+            <h1 className="anchor" onClick={() => deleteAll()}>Delete all</h1>
           </div>
           {user?.seenNotifications.map((notification) => (
             <div className='card p-2' onClick={() => navigate(notification.onClickPath)}>
@@ -114,4 +114,4 @@ function Notifications() {
   )
 }
 
-export default Notifications
+export default Notifications;
