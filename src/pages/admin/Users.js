@@ -3,7 +3,7 @@ import Layout from "../../components/Layout";
 import axios from "axios";
 import { Table } from "antd";
 const Users = () => {
-  const [users, setUsers] = useState([]);
+  const [Users, setUsers] = useState([]);
   const getUsers = async () => {
     try {
       const res = await axios.get("/api/v1/admin/getAllUsers", {
@@ -47,10 +47,11 @@ const Users = () => {
       ),
     },
   ];
+  
   return (
     <Layout>
       <h1 className="text-center m-2">Users List</h1>
-      <Table columns={columns} dataSource={users} />
+      <Table columns={columns} dataSource={Users} />
     </Layout>
   );
 };

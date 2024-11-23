@@ -83,6 +83,7 @@
   @media screen and (max-width: 768px),( forced-colors: active) {
     .menu{
         padding: 0 5px;
+        
     }
   }
 
