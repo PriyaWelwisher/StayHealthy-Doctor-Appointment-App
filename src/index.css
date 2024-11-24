@@ -66,6 +66,11 @@ label{
 .card{
   box-shadow: 0 0 2pc gray ;
   border-radius: 0%;
+  border: 1px solid #ddd;
+  margin-bottom: 8px;
+  padding: 16px;
+  border-radius: 4px;
+  cursor: pointer;
 }
 .primary-button{
   background-color: sandybrown !important;
